@@ -1,0 +1,1115 @@
+2024-03-13 09:28:34 [INFO] Question: Which are the top 5 countries by sales?
+2024-03-13 09:28:34 [INFO] Running PandasAI with openai LLM...
+2024-03-13 09:28:34 [INFO] Prompt ID: e83f52d5-dbed-4b71-b28a-3bded0a0a40a
+2024-03-13 09:28:34 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-13 09:28:34 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-13 09:28:34 [INFO] Executing Step 1: CacheLookup
+2024-03-13 09:28:34 [INFO] Executing Step 2: PromptGeneration
+2024-03-13 09:28:34 [INFO] Using prompt: dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 10
+  columns: 2
+  schema:
+    fields:
+    - name: country
+      type: object
+      samples:
+      - United States
+      - Japan
+      - China
+    - name: sales
+      type: int64
+      samples:
+      - 7000
+      - 2300
+      - 4100
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Which are the top 5 countries by sales?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-03-13 09:28:34 [INFO] Executing Step 3: CodeGenerator
+2024-03-13 09:28:36 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-03-13 09:28:36 [INFO] Prompt used:
+            dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 10
+  columns: 2
+  schema:
+    fields:
+    - name: country
+      type: object
+      samples:
+      - United States
+      - Japan
+      - China
+    - name: sales
+      type: int64
+      samples:
+      - 7000
+      - 2300
+      - 4100
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Which are the top 5 countries by sales?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-03-13 09:28:36 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+df = dfs[0]
+top_countries = df.sort_values(by='sales', ascending=False)['country'].head(5).tolist()
+
+result = {
+    "type": "string",
+    "value": f"The top 5 countries by sales are: {', '.join(top_countries)}"
+}
+            ```
+            
+2024-03-13 09:28:36 [INFO] Executing Step 4: CachePopulation
+2024-03-13 09:28:36 [INFO] Executing Step 5: CodeExecution
+2024-03-13 09:28:36 [INFO] 
+Code running:
+```
+df = dfs[0]
+top_countries = df.sort_values(by='sales', ascending=False)['country'].head(5).tolist()
+result = {'type': 'string', 'value': f"The top 5 countries by sales are: {', '.join(top_countries)}"}
+        ```
+2024-03-13 09:28:36 [INFO] Executing Step 6: ResultValidation
+2024-03-13 09:28:36 [INFO] Answer: {'type': 'string', 'value': 'The top 5 countries by sales are: China, United States, Japan, Germany, United Kingdom'}
+2024-03-13 09:28:36 [INFO] Executing Step 7: ResultParsing
+2024-03-13 09:29:05 [INFO] Question: Which are the top 5 countries by sales?
+2024-03-13 09:29:06 [INFO] Running PandasAI with openai LLM...
+2024-03-13 09:29:06 [INFO] Prompt ID: 6df841a3-e03d-48f4-b509-9148671ce130
+2024-03-13 09:29:06 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-13 09:29:06 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-13 09:29:06 [INFO] Executing Step 1: CacheLookup
+2024-03-13 09:29:06 [INFO] Using cached response
+2024-03-13 09:29:06 [INFO] Executing Step 2: PromptGeneration
+2024-03-13 09:29:06 [INFO] Executing Step 2: Skipping...
+2024-03-13 09:29:06 [INFO] Executing Step 3: CodeGenerator
+2024-03-13 09:29:06 [INFO] Executing Step 3: Skipping...
+2024-03-13 09:29:06 [INFO] Executing Step 4: CachePopulation
+2024-03-13 09:29:06 [INFO] Executing Step 4: Skipping...
+2024-03-13 09:29:06 [INFO] Executing Step 5: CodeExecution
+2024-03-13 09:29:06 [INFO] 
+Code running:
+```
+df = dfs[0]
+top_countries = df.sort_values(by='sales', ascending=False)['country'].head(5).tolist()
+result = {'type': 'string', 'value': f"The top 5 countries by sales are: {', '.join(top_countries)}"}
+        ```
+2024-03-13 09:29:06 [INFO] Executing Step 6: ResultValidation
+2024-03-13 09:29:06 [INFO] Answer: {'type': 'string', 'value': 'The top 5 countries by sales are: China, United States, Japan, Germany, United Kingdom'}
+2024-03-13 09:29:06 [INFO] Executing Step 7: ResultParsing
+2024-03-13 09:31:57 [INFO] Question: which country has highest sales?
+2024-03-13 09:31:57 [INFO] Running PandasAI with openai LLM...
+2024-03-13 09:31:57 [INFO] Prompt ID: 62bc8bdc-ca97-4597-89a6-3906d04377c1
+2024-03-13 09:31:57 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-13 09:31:57 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-13 09:31:57 [INFO] Executing Step 1: CacheLookup
+2024-03-13 09:31:57 [INFO] Executing Step 2: PromptGeneration
+2024-03-13 09:31:57 [INFO] Using prompt: dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 10
+  columns: 2
+  schema:
+    fields:
+    - name: country
+      type: object
+      samples:
+      - Canada
+      - Italy
+      - United Kingdom
+    - name: sales
+      type: int64
+      samples:
+      - 2600
+      - 4100
+      - 3200
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ which country has highest sales?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-03-13 09:31:57 [INFO] Executing Step 3: CodeGenerator
+2024-03-13 09:31:59 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-03-13 09:31:59 [INFO] Prompt used:
+            dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 10
+  columns: 2
+  schema:
+    fields:
+    - name: country
+      type: object
+      samples:
+      - Canada
+      - Italy
+      - United Kingdom
+    - name: sales
+      type: int64
+      samples:
+      - 2600
+      - 4100
+      - 3200
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ which country has highest sales?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-03-13 09:31:59 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+highest_sales_country = dfs[0].loc[dfs[0]['sales'].idxmax()]['country']
+
+# Declare result var
+result = {
+    "type": "string",
+    "value": f"The country with the highest sales is {highest_sales_country}."
+}
+            ```
+            
+2024-03-13 09:31:59 [INFO] Executing Step 4: CachePopulation
+2024-03-13 09:31:59 [INFO] Executing Step 5: CodeExecution
+2024-03-13 09:31:59 [INFO] 
+Code running:
+```
+highest_sales_country = dfs[0].loc[dfs[0]['sales'].idxmax()]['country']
+result = {'type': 'string', 'value': f'The country with the highest sales is {highest_sales_country}.'}
+        ```
+2024-03-13 09:31:59 [INFO] Executing Step 6: ResultValidation
+2024-03-13 09:31:59 [INFO] Answer: {'type': 'string', 'value': 'The country with the highest sales is China.'}
+2024-03-13 09:31:59 [INFO] Executing Step 7: ResultParsing
+2024-03-13 09:32:24 [INFO] Question: which country has highest sales?
+2024-03-13 09:32:25 [INFO] Running PandasAI with openai LLM...
+2024-03-13 09:32:25 [INFO] Prompt ID: e2faacd2-c383-4d64-94b6-4e6a49ad8bde
+2024-03-13 09:32:25 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-13 09:32:25 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-13 09:32:25 [INFO] Executing Step 1: CacheLookup
+2024-03-13 09:32:25 [INFO] Using cached response
+2024-03-13 09:32:25 [INFO] Executing Step 2: PromptGeneration
+2024-03-13 09:32:25 [INFO] Executing Step 2: Skipping...
+2024-03-13 09:32:25 [INFO] Executing Step 3: CodeGenerator
+2024-03-13 09:32:25 [INFO] Executing Step 3: Skipping...
+2024-03-13 09:32:25 [INFO] Executing Step 4: CachePopulation
+2024-03-13 09:32:25 [INFO] Executing Step 4: Skipping...
+2024-03-13 09:32:25 [INFO] Executing Step 5: CodeExecution
+2024-03-13 09:32:25 [INFO] 
+Code running:
+```
+highest_sales_country = dfs[0].loc[dfs[0]['sales'].idxmax()]['country']
+result = {'type': 'string', 'value': f'The country with the highest sales is {highest_sales_country}.'}
+        ```
+2024-03-13 09:32:25 [INFO] Executing Step 6: ResultValidation
+2024-03-13 09:32:25 [INFO] Answer: {'type': 'string', 'value': 'The country with the highest sales is China.'}
+2024-03-13 09:32:25 [INFO] Executing Step 7: ResultParsing
+2024-03-13 09:43:30 [INFO] Question: Which are the top 5 countries by sales?
+2024-03-13 09:43:31 [INFO] Running PandasAI with openai LLM...
+2024-03-13 09:43:31 [INFO] Prompt ID: b52fc09d-bf72-4706-9397-2b4803977d15
+2024-03-13 09:43:31 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-13 09:43:31 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-13 09:43:31 [INFO] Executing Step 1: CacheLookup
+2024-03-13 09:43:31 [INFO] Using cached response
+2024-03-13 09:43:31 [INFO] Executing Step 2: PromptGeneration
+2024-03-13 09:43:31 [INFO] Executing Step 2: Skipping...
+2024-03-13 09:43:31 [INFO] Executing Step 3: CodeGenerator
+2024-03-13 09:43:31 [INFO] Executing Step 3: Skipping...
+2024-03-13 09:43:31 [INFO] Executing Step 4: CachePopulation
+2024-03-13 09:43:31 [INFO] Executing Step 4: Skipping...
+2024-03-13 09:43:31 [INFO] Executing Step 5: CodeExecution
+2024-03-13 09:43:31 [INFO] 
+Code running:
+```
+df = dfs[0]
+top_countries = df.sort_values(by='sales', ascending=False)['country'].head(5).tolist()
+result = {'type': 'string', 'value': f"The top 5 countries by sales are: {', '.join(top_countries)}"}
+        ```
+2024-03-13 09:43:31 [INFO] Executing Step 6: ResultValidation
+2024-03-13 09:43:31 [INFO] Answer: {'type': 'string', 'value': 'The top 5 countries by sales are: China, United States, Japan, Germany, United Kingdom'}
+2024-03-13 09:43:31 [INFO] Executing Step 7: ResultParsing
+2024-03-13 09:47:45 [INFO] Question: Who gets paid the most?
+2024-03-13 09:47:45 [INFO] Running PandasAI with openai LLM...
+2024-03-13 09:47:45 [INFO] Prompt ID: ac5f2893-4652-4810-8e1f-15a9d7b6b95b
+2024-03-13 09:47:45 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-13 09:47:45 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-13 09:47:45 [INFO] Executing Step 1: CacheLookup
+2024-03-13 09:47:45 [INFO] Executing Step 2: PromptGeneration
+2024-03-13 09:47:45 [INFO] Using prompt: dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 5
+  columns: 3
+  schema:
+    fields:
+    - name: EmployeeID
+      type: int64
+      samples:
+      - 3
+      - 2
+      - 1
+    - name: Name
+      type: object
+      samples:
+      - Olivia
+      - Liam
+      - William
+    - name: Department
+      type: object
+      samples:
+      - HR
+      - Marketing
+      - Sales
+dfs[1]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 5
+  columns: 2
+  schema:
+    fields:
+    - name: EmployeeID
+      type: int64
+      samples:
+      - 2
+      - 1
+      - 4
+    - name: Salary
+      type: int64
+      samples:
+      - 5500
+      - 7000
+      - 5000
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Who gets paid the most?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-03-13 09:47:45 [INFO] Executing Step 3: CodeGenerator
+2024-03-13 09:47:48 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-03-13 09:47:48 [INFO] Prompt used:
+            dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 5
+  columns: 3
+  schema:
+    fields:
+    - name: EmployeeID
+      type: int64
+      samples:
+      - 3
+      - 2
+      - 1
+    - name: Name
+      type: object
+      samples:
+      - Olivia
+      - Liam
+      - William
+    - name: Department
+      type: object
+      samples:
+      - HR
+      - Marketing
+      - Sales
+dfs[1]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 5
+  columns: 2
+  schema:
+    fields:
+    - name: EmployeeID
+      type: int64
+      samples:
+      - 2
+      - 1
+      - 4
+    - name: Salary
+      type: int64
+      samples:
+      - 5500
+      - 7000
+      - 5000
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Who gets paid the most?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-03-13 09:47:48 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Combine the two dataframes on 'EmployeeID'
+merged_df = pd.merge(dfs[0], dfs[1], on='EmployeeID')
+
+# Find the employee with the highest salary
+highest_salary = merged_df['Salary'].max()
+highest_paid_employee = merged_df.loc[merged_df['Salary'] == highest_salary, 'Name'].values[0]
+
+# Declare result variable
+result = {
+    "type": "string",
+    "value": f"The employee who gets paid the most is {highest_paid_employee} with a salary of ${highest_salary}."
+}
+            ```
+            
+2024-03-13 09:47:48 [INFO] Executing Step 4: CachePopulation
+2024-03-13 09:47:48 [INFO] Executing Step 5: CodeExecution
+2024-03-13 09:47:48 [INFO] 
+Code running:
+```
+merged_df = pd.merge(dfs[0], dfs[1], on='EmployeeID')
+highest_salary = merged_df['Salary'].max()
+highest_paid_employee = merged_df.loc[merged_df['Salary'] == highest_salary, 'Name'].values[0]
+result = {'type': 'string', 'value': f'The employee who gets paid the most is {highest_paid_employee} with a salary of ${highest_salary}.'}
+        ```
+2024-03-13 09:47:48 [INFO] Executing Step 6: ResultValidation
+2024-03-13 09:47:48 [INFO] Answer: {'type': 'string', 'value': 'The employee who gets paid the most is Olivia with a salary of $7000.'}
+2024-03-13 09:47:48 [INFO] Executing Step 7: ResultParsing
+2024-03-13 09:50:02 [INFO] Question: Which are the top 5 countries by sales?
+2024-03-13 09:50:02 [INFO] Running PandasAI with openai LLM...
+2024-03-13 09:50:02 [INFO] Prompt ID: 6c09eeaa-bb6d-49ab-8eb4-7986e0712fe7
+2024-03-13 09:50:02 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-13 09:50:02 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-13 09:50:02 [INFO] Executing Step 1: CacheLookup
+2024-03-13 09:50:02 [INFO] Executing Step 2: PromptGeneration
+2024-03-13 09:50:02 [INFO] Using prompt: dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 10
+  columns: 4
+  schema:
+    fields:
+    - name: country
+      type: object
+      samples:
+      - Spain
+      - Germany
+      - Canada
+    - name: sales
+      type: int64
+      samples:
+      - 2600
+      - 4500
+      - 4100
+    - name: deals_opened
+      type: int64
+      samples:
+      - 50
+      - 80
+      - 70
+    - name: deals_closed
+      type: int64
+      samples:
+      - 120
+      - 30
+      - 40
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Which are the top 5 countries by sales?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-03-13 09:50:02 [INFO] Executing Step 3: CodeGenerator
+2024-03-13 09:50:04 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-03-13 09:50:04 [INFO] Prompt used:
+            dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 10
+  columns: 4
+  schema:
+    fields:
+    - name: country
+      type: object
+      samples:
+      - Spain
+      - Germany
+      - Canada
+    - name: sales
+      type: int64
+      samples:
+      - 2600
+      - 4500
+      - 4100
+    - name: deals_opened
+      type: int64
+      samples:
+      - 50
+      - 80
+      - 70
+    - name: deals_closed
+      type: int64
+      samples:
+      - 120
+      - 30
+      - 40
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Which are the top 5 countries by sales?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-03-13 09:50:04 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+top_countries_by_sales = dfs[0].groupby('country')['sales'].sum().nlargest(5).index.tolist()
+
+result = {
+    "type": "string",
+    "value": f"The top 5 countries by sales are: {', '.join(top_countries_by_sales)}"
+}
+            ```
+            
+2024-03-13 09:50:04 [INFO] Executing Step 4: CachePopulation
+2024-03-13 09:50:04 [INFO] Executing Step 5: CodeExecution
+2024-03-13 09:50:04 [INFO] 
+Code running:
+```
+top_countries_by_sales = dfs[0].groupby('country')['sales'].sum().nlargest(5).index.tolist()
+result = {'type': 'string', 'value': f"The top 5 countries by sales are: {', '.join(top_countries_by_sales)}"}
+        ```
+2024-03-13 09:50:04 [INFO] Executing Step 6: ResultValidation
+2024-03-13 09:50:04 [INFO] Answer: {'type': 'string', 'value': 'The top 5 countries by sales are: China, United States, Japan, Germany, United Kingdom'}
+2024-03-13 09:50:04 [INFO] Executing Step 7: ResultParsing
+2024-03-13 13:49:09 [INFO] Running PandasAI with openai LLM...
+2024-03-13 13:49:09 [INFO] Prompt ID: 7dff139a-cb9b-4948-bc45-cc0353a81565
+2024-03-13 13:49:15 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-03-13 13:49:15 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data, using the provided dataframes (`dfs`).
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart you must save it as an image in temp_chart.png and not show the chart.)
+    If the user requests to create a chart, utilize the Python matplotlib library to generate high-quality graphics that will be saved directly to a file.
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": f"The highest salary is {highest_salary}." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    
+    # Extracting the required columns from the dataframe
+    price = dfs[0]['Price']
+    area_population = dfs[0]['Area Population']
+    
+    # Creating the plot
+    plt.figure(figsize=(10, 6))
+    plt.plot(area_population, price, color='b')
+    plt.title('Price vs Area Population')
+    plt.xlabel('Area Population')
+    plt.ylabel('Price')
+    plt.grid(True)
+    
+    # Saving the plot as an image
+    plt.savefig('temp_chart.png')
+    
+    return { "type": "plot", "value": "temp_chart.png" }
+```
+
+2024-03-13 13:49:15 [INFO] Saving charts to C:\Users\Administrator\Desktop\Project\temp_chart.png
+2024-03-13 13:49:15 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data, using the provided dataframes (`dfs`).
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart you must save it as an image in C:/Users/Administrator/Desktop/Project/temp_chart.png and not show the chart.)
+    If the user requests to create a chart, utilize the Python matplotlib library to generate high-quality graphics that will be saved directly to a file.
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": f"The highest salary is {highest_salary}." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "C:/Users/Administrator/Desktop/Project/temp_chart.png" }
+    """
+    price = dfs[0]['Price']
+    area_population = dfs[0]['Area Population']
+    plt.figure(figsize=(10, 6))
+    plt.plot(area_population, price, color='b')
+    plt.title('Price vs Area Population')
+    plt.xlabel('Area Population')
+    plt.ylabel('Price')
+    plt.grid(True)
+    plt.savefig('C:/Users/Administrator/Desktop/Project/temp_chart.png')
+    return {'type': 'plot', 'value': 'C:/Users/Administrator/Desktop/Project/temp_chart.png'}
+        ```
+2024-03-13 13:49:15 [INFO] Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-03-13 13:49:15 [INFO] Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-03-13 13:49:15 [INFO] Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-03-13 13:49:15 [INFO] Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-03-13 13:49:16 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/Administrator/Desktop/Project/temp_chart.png'}
+2024-03-13 13:49:16 [INFO] Executed in: 6.63732647895813s
+2024-03-13 13:49:29 [INFO] Running PandasAI with openai LLM...
+2024-03-13 13:49:29 [INFO] Prompt ID: 9ad5359f-b241-41ad-9469-ef71da638f90
+2024-03-13 13:49:29 [INFO] Using cached response
+2024-03-13 13:49:29 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data, using the provided dataframes (`dfs`).
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart you must save it as an image in temp_chart.png and not show the chart.)
+    If the user requests to create a chart, utilize the Python matplotlib library to generate high-quality graphics that will be saved directly to a file.
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": f"The highest salary is {highest_salary}." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    
+    # Extracting the required columns from the dataframe
+    price = dfs[0]['Price']
+    area_population = dfs[0]['Area Population']
+    
+    # Creating the plot
+    plt.figure(figsize=(10, 6))
+    plt.plot(area_population, price, color='b')
+    plt.title('Price vs Area Population')
+    plt.xlabel('Area Population')
+    plt.ylabel('Price')
+    plt.grid(True)
+    
+    # Saving the plot as an image
+    plt.savefig('temp_chart.png')
+    
+    return { "type": "plot", "value": "temp_chart.png" }
+```
+
+2024-03-13 13:49:29 [INFO] Saving charts to C:\Users\Administrator\Desktop\Project\temp_chart.png
+2024-03-13 13:49:29 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data, using the provided dataframes (`dfs`).
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart you must save it as an image in C:/Users/Administrator/Desktop/Project/temp_chart.png and not show the chart.)
+    If the user requests to create a chart, utilize the Python matplotlib library to generate high-quality graphics that will be saved directly to a file.
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": f"The highest salary is {highest_salary}." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "C:/Users/Administrator/Desktop/Project/temp_chart.png" }
+    """
+    price = dfs[0]['Price']
+    area_population = dfs[0]['Area Population']
+    plt.figure(figsize=(10, 6))
+    plt.plot(area_population, price, color='b')
+    plt.title('Price vs Area Population')
+    plt.xlabel('Area Population')
+    plt.ylabel('Price')
+    plt.grid(True)
+    plt.savefig('C:/Users/Administrator/Desktop/Project/temp_chart.png')
+    return {'type': 'plot', 'value': 'C:/Users/Administrator/Desktop/Project/temp_chart.png'}
+        ```
+2024-03-13 13:49:30 [INFO] Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-03-13 13:49:30 [INFO] Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-03-13 13:49:30 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/Administrator/Desktop/Project/temp_chart.png'}
+2024-03-13 13:49:30 [INFO] Executed in: 0.5244863033294678s
+2024-03-13 13:50:13 [INFO] Running PandasAI with openai LLM...
+2024-03-13 13:50:13 [INFO] Prompt ID: 5c48cd83-f56a-4dd3-adc4-56364f5e2180
+2024-03-13 13:50:19 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-03-13 13:50:20 [INFO] Saving charts to C:\Users\Administrator\Desktop\Project\temp_chart.png
+2024-03-13 13:50:20 [WARNING] Error of executing code
+2024-03-13 13:50:20 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2024-03-13 13:50:20 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\ProgramData\anaconda3\Lib\site-packages\pandasai\smart_datalake\__init__.py", line 438, in chat
+    result = self._code_manager.execute_code(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\anaconda3\Lib\site-packages\pandasai\helpers\code_manager.py", line 286, in execute_code
+    return analyze_data(self._get_originals(dfs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 20, in analyze_data
+NameError: name 'user_input' is not defined
+. Retrying
+2024-03-13 13:50:26 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-03-13 13:50:26 [INFO] Saving charts to C:\Users\Administrator\Desktop\Project\temp_chart.png
+2024-03-13 13:50:26 [WARNING] Error of executing code
+2024-03-13 13:50:26 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2024-03-13 13:50:26 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\ProgramData\anaconda3\Lib\site-packages\pandasai\smart_datalake\__init__.py", line 438, in chat
+    result = self._code_manager.execute_code(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\anaconda3\Lib\site-packages\pandasai\helpers\code_manager.py", line 286, in execute_code
+    return analyze_data(self._get_originals(dfs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: analyze_data() missing 1 required positional argument: 'user_input'
+. Retrying
+2024-03-13 13:50:33 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-03-13 13:50:33 [INFO] Saving charts to C:\Users\Administrator\Desktop\Project\temp_chart.png
+2024-03-13 13:50:33 [WARNING] Error of executing code
+2024-03-13 13:50:40 [INFO] Running PandasAI with openai LLM...
+2024-03-13 13:50:40 [INFO] Prompt ID: 42c83868-fa0f-451b-87c9-c8f7f629526b
+2024-03-13 13:50:47 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-03-13 13:50:47 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data, using the provided dataframes (`dfs`).
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart you must save it as an image in temp_chart.png and not show the chart.)
+    If the user requests to create a chart, utilize the Python matplotlib library to generate high-quality graphics that will be saved directly to a file.
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": f"The highest salary is {highest_salary}." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    if "Price" in dfs[0].columns:
+        plt.figure(figsize=(8, 6))
+        dfs[0]["Price"].plot(kind='box')
+        plt.savefig('temp_chart.png')
+        plt.close()
+        return {"type": "plot", "value": "temp_chart.png"}
+    else:
+        return {"type": "string", "value": "Column 'Price' not found in the dataframe."}
+```
+
+2024-03-13 13:50:47 [INFO] Saving charts to C:\Users\Administrator\Desktop\Project\temp_chart.png
+2024-03-13 13:50:47 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data, using the provided dataframes (`dfs`).
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart you must save it as an image in C:/Users/Administrator/Desktop/Project/temp_chart.png and not show the chart.)
+    If the user requests to create a chart, utilize the Python matplotlib library to generate high-quality graphics that will be saved directly to a file.
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": f"The highest salary is {highest_salary}." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "C:/Users/Administrator/Desktop/Project/temp_chart.png" }
+    """
+    if 'Price' in dfs[0].columns:
+        plt.figure(figsize=(8, 6))
+        dfs[0]['Price'].plot(kind='box')
+        plt.savefig('C:/Users/Administrator/Desktop/Project/temp_chart.png')
+        plt.close()
+        return {'type': 'plot', 'value': 'C:/Users/Administrator/Desktop/Project/temp_chart.png'}
+    else:
+        return {'type': 'string', 'value': "Column 'Price' not found in the dataframe."}
+        ```
+2024-03-13 13:50:47 [WARNING] Error of executing code
+2024-03-13 13:50:47 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/Administrator/Desktop/Project/temp_chart.png'}
+2024-03-13 13:50:47 [INFO] Executed in: 7.805872678756714s
+2024-03-13 14:17:18 [INFO] Running PandasAI with openai LLM...
+2024-03-13 14:17:18 [INFO] Prompt ID: 3941189e-92de-40ff-9269-d66d17e0facf
+2024-03-13 14:17:26 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-03-13 14:17:26 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data, using the provided dataframes (`dfs`).
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart you must save it as an image in temp_chart.png and not show the chart.)
+    If the user requests to create a chart, utilize the Python matplotlib library to generate high-quality graphics that will be saved directly to a file.
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": f"The highest salary is {highest_salary}." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+
+    # Extract the dataframe with house prices
+    df = dfs[0]
+
+    # Sort the dataframe by 'Price' column in descending order
+    top_5_expensive_houses = df.sort_values(by='Price', ascending=False).head(5)
+
+    # Return the top 5 most expensive houses
+    return { "type": "dataframe", "value": top_5_expensive_houses }
+```
+
+2024-03-13 14:17:26 [INFO] Saving charts to C:\Users\Administrator\Desktop\Project\temp_chart.png
+2024-03-13 14:17:26 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data, using the provided dataframes (`dfs`).
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart you must save it as an image in C:/Users/Administrator/Desktop/Project/temp_chart.png and not show the chart.)
+    If the user requests to create a chart, utilize the Python matplotlib library to generate high-quality graphics that will be saved directly to a file.
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": f"The highest salary is {highest_salary}." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "C:/Users/Administrator/Desktop/Project/temp_chart.png" }
+    """
+    df = dfs[0]
+    top_5_expensive_houses = df.sort_values(by='Price', ascending=False).head(5)
+    return {'type': 'dataframe', 'value': top_5_expensive_houses}
+        ```
+2024-03-13 14:17:26 [INFO] Answer: {'type': 'dataframe', 'value':       Avg. Area Income  Avg. Area House Age  Avg. Area Number of Rooms  ...  Area Population         Price                                            Address
+465       90592.469609             7.700132                   9.708803  ...     37223.876167  2.469066e+06                     USNS Vargas\nFPO AE 56319-6904
+2719     101599.670580             7.798746                   7.480512  ...     37523.864670  2.370231e+06  52280 Steven Street\nRobertchester, IA 40405-0504
+693      107701.748378             7.143522                   8.518608  ...     37619.439929  2.332111e+06         41017 Eric Village\nJonathanport, CO 37205
+924       83814.101156             8.571797                   7.392164  ...     51538.056796  2.330290e+06           125 Gillespie Plain\nWhitefurt, MO 18599
+1248      94733.971275             7.885829                   7.162373  ...     46314.690046  2.318286e+06  4393 James Springs Apt. 818\nMargaretview, ND ...
+
+[5 rows x 7 columns]}
+2024-03-13 14:17:26 [INFO] Executed in: 8.168437004089355s
+2024-03-13 14:18:06 [INFO] Running PandasAI with openai LLM...
+2024-03-13 14:18:06 [INFO] Prompt ID: 78ea96bc-8088-4821-b758-d5bda7e5e381
+2024-03-13 14:18:13 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-03-13 14:18:13 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data, using the provided dataframes (`dfs`).
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart you must save it as an image in temp_chart.png and not show the chart.)
+    If the user requests to create a chart, utilize the Python matplotlib library to generate high-quality graphics that will be saved directly to a file.
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": f"The highest salary is {highest_salary}." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+
+    # Extract the top 5 houses with the highest prices
+    top_5_expensive_houses = dfs[0].nlargest(5, 'Price')
+
+    # Return the top 5 expensive houses as a dataframe
+    return { "type": "dataframe", "value": top_5_expensive_houses }
+```
+
+2024-03-13 14:18:13 [INFO] Saving charts to C:\Users\Administrator\Desktop\Project\temp_chart.png
+2024-03-13 14:18:13 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data, using the provided dataframes (`dfs`).
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart you must save it as an image in C:/Users/Administrator/Desktop/Project/temp_chart.png and not show the chart.)
+    If the user requests to create a chart, utilize the Python matplotlib library to generate high-quality graphics that will be saved directly to a file.
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": f"The highest salary is {highest_salary}." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "C:/Users/Administrator/Desktop/Project/temp_chart.png" }
+    """
+    top_5_expensive_houses = dfs[0].nlargest(5, 'Price')
+    return {'type': 'dataframe', 'value': top_5_expensive_houses}
+        ```
+2024-03-13 14:18:13 [WARNING] Error of executing code
+2024-03-13 14:18:13 [INFO] Answer: {'type': 'dataframe', 'value':       Avg. Area Income  Avg. Area House Age  Avg. Area Number of Rooms  ...  Area Population         Price                                            Address
+465       90592.469609             7.700132                   9.708803  ...     37223.876167  2.469066e+06                     USNS Vargas\nFPO AE 56319-6904
+2719     101599.670580             7.798746                   7.480512  ...     37523.864670  2.370231e+06  52280 Steven Street\nRobertchester, IA 40405-0504
+693      107701.748378             7.143522                   8.518608  ...     37619.439929  2.332111e+06         41017 Eric Village\nJonathanport, CO 37205
+924       83814.101156             8.571797                   7.392164  ...     51538.056796  2.330290e+06           125 Gillespie Plain\nWhitefurt, MO 18599
+1248      94733.971275             7.885829                   7.162373  ...     46314.690046  2.318286e+06  4393 James Springs Apt. 818\nMargaretview, ND ...
+
+[5 rows x 7 columns]}
+2024-03-13 14:18:13 [INFO] Executed in: 7.240701675415039s
